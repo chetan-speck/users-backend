@@ -65,7 +65,7 @@ const authMiddleware = asyncHandler(
 
 					res.cookie(CookieName.AccessToken, newAccessToken, {
 						httpOnly: true,
-						secure: process.env.NODE_ENV === 'production',
+						secure: false,
 						maxAge: 15 * 60 * 1000,
 						sameSite: 'lax',
 					});

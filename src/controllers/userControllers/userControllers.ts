@@ -183,14 +183,14 @@ export const createUser = asyncHandler(
 
 		res.cookie(CookieName.AccessToken, accessToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			maxAge: +ACCESS_TOKEN_EXPIRATION_MS,
 			sameSite: 'lax',
 		});
 
 		res.cookie(CookieName.RefreshToken, refreshToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			maxAge: +REFRESH_TOKEN_EXPIRATION_MS,
 			sameSite: 'lax',
 		});
@@ -305,14 +305,14 @@ export const signInUser = asyncHandler(
 
 		res.cookie(CookieName.AccessToken, accessToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			maxAge: +ACCESS_TOKEN_EXPIRATION_MS,
 			sameSite: 'lax',
 		});
 
 		res.cookie(CookieName.RefreshToken, refreshToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			maxAge: +REFRESH_TOKEN_EXPIRATION_MS,
 			sameSite: 'lax',
 		});
@@ -334,13 +334,13 @@ export const signOutUser = asyncHandler(
 	async (_req: Request, res: Response): Promise<void> => {
 		res.clearCookie(CookieName.AccessToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			sameSite: 'lax',
 		});
 
 		res.clearCookie(CookieName.RefreshToken, {
 			httpOnly: true,
-			secure: process.env.NODE_ENV === 'production',
+			secure: false,
 			sameSite: 'lax',
 		});
 
