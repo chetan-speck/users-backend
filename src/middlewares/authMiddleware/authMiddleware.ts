@@ -67,7 +67,7 @@ const authMiddleware = asyncHandler(
 						httpOnly: true,
 						secure: false,
 						maxAge: 15 * 60 * 1000,
-						sameSite: 'lax',
+						sameSite: false,
 					});
 
 					req.body.user = {

@@ -185,14 +185,14 @@ export const createUser = asyncHandler(
 			httpOnly: true,
 			secure: false,
 			maxAge: +ACCESS_TOKEN_EXPIRATION_MS,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.cookie(CookieName.RefreshToken, refreshToken, {
 			httpOnly: true,
 			secure: false,
 			maxAge: +REFRESH_TOKEN_EXPIRATION_MS,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.status(201).json({
@@ -307,14 +307,14 @@ export const signInUser = asyncHandler(
 			httpOnly: true,
 			secure: false,
 			maxAge: +ACCESS_TOKEN_EXPIRATION_MS,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.cookie(CookieName.RefreshToken, refreshToken, {
 			httpOnly: true,
 			secure: false,
 			maxAge: +REFRESH_TOKEN_EXPIRATION_MS,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.status(200).json({
@@ -335,13 +335,13 @@ export const signOutUser = asyncHandler(
 		res.clearCookie(CookieName.AccessToken, {
 			httpOnly: true,
 			secure: false,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.clearCookie(CookieName.RefreshToken, {
 			httpOnly: true,
 			secure: false,
-			sameSite: 'lax',
+			sameSite: false,
 		});
 
 		res.status(200).json({
